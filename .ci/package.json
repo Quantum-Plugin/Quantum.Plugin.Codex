@@ -1,0 +1,11 @@
+{
+  "name": "quantum-plugin-codex-checks",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write \"../src/**/*.{js,css}\" \"../tests/**/*.mjs\" --no-error-on-unmatched-pattern --ignore-path ../.prettierignore",
+    "check": "prettier --check \"../src/**/*.{js,css}\" \"../tests/**/*.mjs\" --no-error-on-unmatched-pattern --ignore-path ../.prettierignore"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2"
+  }
+}

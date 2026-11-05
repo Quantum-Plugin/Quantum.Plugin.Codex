@@ -1,0 +1,106 @@
+.markdown-body {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.markdown-body ::deep > :first-child {
+  margin-top: 0;
+}
+.markdown-body ::deep > :last-child {
+  margin-bottom: 0;
+}
+.markdown-body ::deep p {
+  margin: 0 0 12px;
+}
+.markdown-body ::deep h1,
+.markdown-body ::deep h2,
+.markdown-body ::deep h3,
+.markdown-body ::deep h4 {
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 20px 0 10px;
+}
+.markdown-body ::deep h1 {
+  font-size: 1.5em;
+}
+.markdown-body ::deep h2 {
+  font-size: 1.3em;
+}
+.markdown-body ::deep h3,
+.markdown-body ::deep h4 {
+  font-size: 1.1em;
+}
+.markdown-body ::deep ul,
+.markdown-body ::deep ol {
+  margin: 8px 0 12px;
+  padding-left: 24px;
+}
+.markdown-body ::deep li + li {
+  margin-top: 4px;
+}
+.markdown-body ::deep li > p {
+  margin-bottom: 4px;
+}
+.markdown-body ::deep blockquote {
+  border-left: 3px solid #dedede;
+  color: #777;
+  margin: 12px 0;
+  padding: 2px 14px;
+}
+.markdown-body ::deep code {
+  background: #f3f3f3;
+  border-radius: 4px;
+  font-family: Consolas, 'Cascadia Code', monospace;
+  font-size: 0.9em;
+  padding: 2px 5px;
+}
+.markdown-body ::deep pre {
+  background: #f6f6f6;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  line-height: 1.6;
+  margin: 12px 0;
+  max-width: 100%;
+  overflow: auto;
+  padding: 14px 16px;
+  white-space: pre;
+}
+.markdown-body ::deep pre code {
+  background: none;
+  border-radius: 0;
+  padding: 0;
+}
+.markdown-body ::deep a {
+  color: #356ea8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.markdown-body ::deep a:hover {
+  color: #24517d;
+}
+.markdown-body ::deep table {
+  border-collapse: collapse;
+  display: block;
+  margin: 12px 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.markdown-body ::deep th,
+.markdown-body ::deep td {
+  border: 1px solid #dedede;
+  padding: 7px 12px;
+  text-align: left;
+}
+.markdown-body ::deep th {
+  background: #f6f6f6;
+  font-weight: 600;
+}
+.markdown-body ::deep hr {
+  border: 0;
+  border-top: 1px solid #dedede;
+  margin: 18px 0;
+}
+.markdown-body ::deep input[type='checkbox'] {
+  margin-right: 6px;
+}

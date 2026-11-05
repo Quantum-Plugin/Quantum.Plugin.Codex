@@ -1,0 +1,20 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <NofVersion>11.0.0-nightly.1473609.75efa591</NofVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Quantum.Plugin.Abstraction" Version="[0.3.0-rc.2]" />
+    <PackageVersion Include="Markdig" Version="1.3.2" />
+    <PackageVersion Include="System.Speech" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Localization" Version="10.0.7" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.7" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.7" />
+    <PackageVersion Include="NOF.Application" Version="$(NofVersion)" />
+    <PackageVersion Include="NOF.Contract" Version="$(NofVersion)" />
+    <PackageVersion Include="NOF.Infrastructure" Version="$(NofVersion)" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+  </ItemGroup>
+</Project>

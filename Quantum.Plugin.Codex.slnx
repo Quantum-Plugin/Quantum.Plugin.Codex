@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Quantum.CodexPlugin/Quantum.CodexPlugin.csproj" />
+  <Project Path="tests/Quantum.CodexPlugin.Tests/Quantum.CodexPlugin.Tests.csproj" />
+</Solution>

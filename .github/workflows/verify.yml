@@ -1,0 +1,42 @@
+name: Verify
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: dotnet restore Quantum.Plugin.Codex.slnx
+      - run: ./.ci/Format.ps1 -Verify
+        shell: pwsh
+      - run: npm ci --prefix .ci
+      - run: npm run check --prefix .ci
+      - run: node --test tests/Quantum.CodexPlugin.Tests/Web/test-codex-media.mjs tests/Quantum.CodexPlugin.Tests/Web/test-codex-composer.mjs
+      - run: dotnet test Quantum.Plugin.Codex.slnx -c Release --no-restore
+      - run: ./.ci/Build.ps1
+        shell: pwsh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Quantum.Plugin.Codex-${{ runner.os }}
+          path: artifacts/*.zip
+          if-no-files-found: error

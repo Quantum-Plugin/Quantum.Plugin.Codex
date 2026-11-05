@@ -1,0 +1,50 @@
+{
+  "id": "quantum.plugin.codex",
+  "version": "0.4.0",
+  "entryAssembly": "Quantum.CodexPlugin.dll",
+  "ui": {
+    "routes": [
+      {
+        "path": "/plugins/codex",
+        "component": "Quantum.OfficialPlugins.Codex.UI.Pages.Codex",
+        "title": "Codex",
+        "titles": {
+          "en-US": "Codex"
+        },
+        "icon": "✦",
+        "order": 110,
+        "showInNavigation": true,
+        "iconFile": "icons/plugin.ico"
+      }
+    ],
+    "globalComponents": [
+      {
+        "component": "Quantum.OfficialPlugins.Codex.UI.Pages.CodexDrawer",
+        "order": 110
+      }
+    ]
+  },
+  "web": {
+    "head": [
+      "<link rel=\"stylesheet\" href=\"_content/quantum.plugin.codex/codex-layout.css\">",
+      "<link rel=\"stylesheet\" href=\"_content/quantum.plugin.codex/Quantum.CodexPlugin.bundle.scp.css\">"
+    ],
+    "postBlazor": []
+  },
+  "capabilities": {
+    "provides": [
+      "codex.change-model",
+      "codex.connect",
+      "codex.disconnect",
+      "codex.ensure-auto-connected",
+      "codex.mobile-refresh",
+      "codex.models",
+      "codex.new-thread",
+      "codex.send",
+      "codex.snapshot",
+      "speech.transcribe"
+    ],
+    "requires": [],
+    "integrates": []
+  }
+}

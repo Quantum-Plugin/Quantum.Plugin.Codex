@@ -1,0 +1,7 @@
+/* Keep the Codex workspace inside the window on hosts with document-style page margins. */
+.content:has(.codex-shell) {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 20px 24px;
+}

@@ -1,0 +1,41 @@
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.Extensions.Localization
+@using Quantum.OfficialPlugins.Codex.UI.Localization
+@namespace Quantum.OfficialPlugins.Codex.UI.Pages
+@implements IAsyncDisposable
+@inject IStringLocalizer<PluginStrings> L
+
+<div class="media-picker">
+    <div class="media-toolbar">
+        <label class="attach-button" aria-label="@L["Attach"]" title="@L["Attach"]" aria-disabled="@(Disabled || _recording)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+            <InputFile OnChange="PickFilesAsync" multiple disabled="@(Disabled || _recording)" />
+        </label>
+        <button type="button" disabled="@(Disabled || _starting)" aria-label="@L[_recording ? "Stop recording" : "Record voice"]" title="@L[_recording ? "Stop recording" : "Record voice"]" class="record-button @(_recording ? "recording" : "")" @onclick="ToggleRecordingAsync">
+            @if (_recording)
+            {
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10H7z" /></svg>
+            }
+            else
+            {
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3" /><path d="M6 11v1a6 6 0 0 0 12 0v-1M12 18v3m-3 0h6" /></svg>
+            }
+        </button>
+        @if (_recording) { <span role="status">@L["Recording…"]</span> }
+    </div>
+    @if (_error is not null) { <div class="media-error" role="alert">@L[_error]</div> }
+    <div class="attachment-chips">
+        @foreach (var file in _files)
+        {
+            <div class="attachment-chip">
+                @if (file.ContentType is "image/png" or "image/jpeg" or "image/webp" or "image/gif")
+                {
+                    <img alt="@file.Name" src="@("data:" + file.ContentType + ";base64," + file.DataBase64)" />
+                }
+                <span title="@file.Name">@file.Name</span>
+                <button type="button" aria-label="@(L["Remove attachment"] + " " + file.Name)" disabled="@Disabled" @onclick="() => RemoveAsync(file)">×</button>
+            </div>
+        }
+    </div>
+</div>
