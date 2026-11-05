@@ -1,5 +1,7 @@
 # Repository instructions
 
+- Follow the [English development standards](.standards/docs/en/README.md) at the commit recorded by this repository. Use the contributor-approved Git identity for both author and committer; never invent a placeholder identity.
+
 - Follow the [English documentation](docs/en/README.md) and [development rules](docs/en/contributing.md).
 - Keep English and Simplified Chinese in separate, mutually linked files under docs/en and docs/zh-CN. This file stays English only.
 - Reference the published Quantum.Plugin.Abstraction package. Do not add source references to a sibling repository, host or another plugin.
